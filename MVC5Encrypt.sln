@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEncrypt", "MVC5Encrypt\MVCEncrypt\MVCEncrypt.csproj", "{4BF46BAA-83DD-433A-8E1E-CDD26949015F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net5MVCEncryptDemo", "Net5MVCEncryptDemo\Net5MVCEncryptDemo.csproj", "{9A05B720-AB1A-4214-B626-9D0FB9EB1DE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEncryptDemo", "MVC5Encrypt\MVCEncryptDemo\MVCEncryptDemo.csproj", "{B0466FE3-7187-4321-BE10-4AF188EE6150}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCoreQueryEncrypt", "NET5MVCEncrypt\MVCCoreQueryEncrypt.csproj", "{81B18D1A-E6AC-4742-9182-1656B1AFF612}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,16 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4BF46BAA-83DD-433A-8E1E-CDD26949015F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BF46BAA-83DD-433A-8E1E-CDD26949015F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BF46BAA-83DD-433A-8E1E-CDD26949015F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BF46BAA-83DD-433A-8E1E-CDD26949015F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0466FE3-7187-4321-BE10-4AF188EE6150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0466FE3-7187-4321-BE10-4AF188EE6150}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0466FE3-7187-4321-BE10-4AF188EE6150}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0466FE3-7187-4321-BE10-4AF188EE6150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A05B720-AB1A-4214-B626-9D0FB9EB1DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A05B720-AB1A-4214-B626-9D0FB9EB1DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A05B720-AB1A-4214-B626-9D0FB9EB1DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A05B720-AB1A-4214-B626-9D0FB9EB1DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B18D1A-E6AC-4742-9182-1656B1AFF612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B18D1A-E6AC-4742-9182-1656B1AFF612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B18D1A-E6AC-4742-9182-1656B1AFF612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B18D1A-E6AC-4742-9182-1656B1AFF612}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1903DF00-74EA-45FC-B294-A7F70658115C}
 	EndGlobalSection
 EndGlobal

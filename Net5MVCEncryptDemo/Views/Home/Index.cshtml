@@ -1,0 +1,45 @@
+﻿@using MVCCoreQueryEncrypt
+@{
+    ViewBag.Title = "Encrypt Demo page";
+}
+
+<div class="jumbotron">
+    <h1>Encrypt/Decrypt Parameters </h1>
+
+    <p class="lead">Encrypt/Decryption query string parameters</p>
+
+</div>
+
+<div class="row">
+    <div>
+        <h2>How to Encrypt Parameters:</h2>
+        <p>
+            In the View , the original link looks like this:
+        </p><p>
+            &lt;a href='@@Url.Action("TestEncrypt", new {id=7, val1 = 1, val2 = "awesome" })'&gt;Test&lt;/a&gt;
+            <br />old link:    <a href='@Url.Action("EncryptedAction", new { id=7, val1 = 1, val2 = "awesome" })'>Insecure</a>
+        </p><p>
+            To encrypt, please modify to this:
+        </p><p>
+    &lt;a href='@@Url.Encrypt("EncryptedAction", new {id=7, val1 = 1, val2 = "awesome" })'&gt;Test&lt;/a&gt;
+    <br />    Do not forget @@using MVCEncrypt;
+</p><p>
+            new link:
+            <a href='@Url.Encrypt("EncryptedAction", new {id=7, val1 = 1, val2 = "awesome" })'>Secure</a>
+            <br />
+            In the action, please add attribute DecryptFilter
+        </p>
+        <br/><p>
+                <pre>
+            [DecryptFilter]
+            public ActionResult EncryptedAction(int id,int val1, string val2)
+            {
+                  ViewBag.id = id;
+                  ViewBag.val1 = val1;
+                  ViewBag.val2 = val2;
+                  return View();               
+            }
+            </pre>
+        </p>
+    </div>
+</div>

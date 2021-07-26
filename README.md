@@ -1,37 +1,29 @@
-# MVC5Encrypt
-Encrypt / decrypt query string parameters with MVC 5
+# .NET CORE - MVCCoreQueryEncrypt
+Encrypt / decrypt query string parameters for ASP.NET MVC applications
 
-3 Steps to use :
+5 Steps to use :
 
-1. Install  MVC5Encrypt from Nuget: Install-Package MVC5Encrypt
+1. Download MVCCoreQueryEncrypt project
 
-2. Modify
+2. Add the project to your solution and reference the project accordingly, Modify
 
 <p>&lt;a href='@Url.Action(&quot;TestEncrypt&quot;, new {id=7, a = 1, b = &quot;asd&quot; })'&gt;Test&lt;/a&gt;</p>
 
 into 
 
-<p>&lt;a href='@Url.ActionEnc(&quot;mySecret&quot;, &quot;TestEncrypt&quot;, new {id=7, a = 1, b = &quot;asd&quot; })'&gt;Test&lt;/a&gt;</p>
+<p>&lt;a href='@Url.Encrypt(&quot;TestEncrypt&quot;, new {id=7, a = 1, b = &quot;asd&quot; })'&gt;Test&lt;/a&gt;</p>
 ( Add as first line in the view:
 
-@using MVCEncrypt;
+@using MVCCoreQueryEncrypt;
 )
 
-3. Add to the action the MVCDecryptFilterAttribute
+3. Setup the Salt & Secret in the Startup.cs
 
-[MVCDecryptFilter(secret = &quot;mySecret&quot;)] 
+//Retrieve the salt and secret from a secure location
+ services.MvcCoreQueryEncryptionServices(/*salt value */, /*secret value*/);
 
+4. Add the action filter DecryptFilter to action methods that need to decrypt parameters
 
-Demo at http://mvc5encrypt.apphb.com/ 
+[DecryptFilter] 
 
-
-NuGet at https://www.nuget.org/packages/MVC5Encrypt/
-
-
-Sources on GitHub : https://github.com/ignatandrei/MVC5Encrypt
-
-More details at Wiki https://github.com/ignatandrei/MVC5Encrypt/wiki
-
-Video at https://youtu.be/FA-sTM6cf5w
-
-Contact at my blog http://msprogrammer.serviciipeweb.ro/2017/03/20/mvc-5-encrypt-parameters/
+5. Check out the demo application

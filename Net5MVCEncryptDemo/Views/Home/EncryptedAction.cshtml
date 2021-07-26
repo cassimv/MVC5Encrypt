@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Encrypted Action Results";
+}
+
+<h2>TestEncrypt</h2>
+Parameters from action:
+<p>id = @ViewBag.id</p>
+<p>val1 = @ViewBag.val1</p>
+<p>val2 = @ViewBag.val2</p>
+
+Parameters from query string
+<p></p>
+<div id="val1"></div>
+<p></p>
+<div id="val2"></div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            
+            $("#val1").html("val1=" + getParameterByName("val1"));
+            $("#val2").html("val2=" + getParameterByName("val2"));
+        });
+        function getParameterByName(name) {
+
+            var url = window.location.href;
+
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
+    }
