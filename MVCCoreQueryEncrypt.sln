@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Net5MVCEncryptDemo", "Net5MVCEncryptDemo\Net5MVCEncryptDemo.csproj", "{9A05B720-AB1A-4214-B626-9D0FB9EB1DE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCoreQueryEncryptDemo", "MVCCoreQueryEncryptDemo\MVCCoreQueryEncryptDemo.csproj", "{9A05B720-AB1A-4214-B626-9D0FB9EB1DE0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCoreQueryEncrypt", "NET5MVCEncrypt\MVCCoreQueryEncrypt.csproj", "{81B18D1A-E6AC-4742-9182-1656B1AFF612}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCoreQueryEncrypt", "MVCCoreQueryEncrypt\MVCCoreQueryEncrypt.csproj", "{81B18D1A-E6AC-4742-9182-1656B1AFF612}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

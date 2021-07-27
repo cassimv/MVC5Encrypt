@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NET5MVCEncrypt\MVCCoreQueryEncrypt.csproj" />
+    <ProjectReference Include="..\MVCCoreQueryEncrypt\MVCCoreQueryEncrypt.csproj" />
   </ItemGroup>
 
   <ItemGroup>
