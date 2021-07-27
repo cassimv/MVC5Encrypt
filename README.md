@@ -20,7 +20,7 @@ into
 3. Setup the Salt & Secret in the Startup.cs
 
 //Retrieve the salt and secret from a secure location
- services.MvcCoreQueryEncryptionServices(/*salt value */, /*secret value*/);
+ <p>services.MvcCoreQueryEncryptionServices(/*salt value */, /*secret value*/);</p>
 
 4. Add the action filter DecryptFilter to action methods that need to decrypt parameters
 
