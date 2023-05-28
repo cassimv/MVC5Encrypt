@@ -1,4 +1,4 @@
-# .NET CORE - MVCCoreQueryEncrypt
+# .NET 7 CORE - MVCCoreQueryEncrypt
 Encrypt / decrypt query string parameters for ASP.NET CORE MVC applications
 
 5 Steps to use :
