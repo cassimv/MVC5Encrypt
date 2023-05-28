@@ -1,23 +1,32 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Encrypted Action Results";
 }
 
 <h2>TestEncrypt</h2>
 Parameters from action:
-<p>id = @ViewBag.id</p>
+<p>val0 = @ViewBag.val0</p>
 <p>val1 = @ViewBag.val1</p>
 <p>val2 = @ViewBag.val2</p>
 
-Parameters from query string
-<p></p>
-<div id="val1"></div>
-<p></p>
-<div id="val2"></div>
+Parameters from query string:
+<p>
+    <div id="val0"></div>
+</p>
+<p>
+    <div id="val1"></div>
+</p>
+<p>
+    <div id="val2"></div>
+</p>
+
 @section scripts{
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+            integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE="
+            crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
-            
+
+            $("#val0").html("val0=" + getParameterByName("val0"));
             $("#val1").html("val1=" + getParameterByName("val1"));
             $("#val2").html("val2=" + getParameterByName("val2"));
         });
@@ -33,4 +42,4 @@ Parameters from query string
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
     </script>
-    }
+}

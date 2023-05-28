@@ -1,6 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using System;
 using System.Web;
 using Microsoft.AspNetCore.Mvc.Filters;
 using MVCCoreQueryEncrypt.ServiceConfiguration;
@@ -17,12 +17,39 @@ namespace MVCCoreQueryEncrypt
     public class DecryptFilterAttribute : Attribute, IAsyncResourceFilter
     {
         /// <summary>
-        /// decrypts parameters in the ASP.NET CORE Pipeline
+        /// the encrypt decrypt full class name
+        /// must inherit from <see cref="IEncryptDecrypt"/>
+        /// </summary>
+        public string EncDecFullClassName;
+
+        /// <summary>
+        /// executes and decrypts
         /// </summary>
         public async Task OnResourceExecutionAsync(ResourceExecutingContext context, ResourceExecutionDelegate next)
         {
-            IEncryptDecrypt encDec = new EncryptDecrypt(ServicesExtensions.MvcDecryptFilterSecret);
-            var args = HttpUtility.ParseQueryString(context.HttpContext.Request.QueryString.ToString() ?? string.Empty);
+            IEncryptDecrypt encDec;
+            if (string.IsNullOrWhiteSpace(EncDecFullClassName))
+            {
+                encDec = new EncryptDecrypt(ServicesExtensions.MvcDecryptFilterSecret);
+            }
+            else
+            {
+                var encryptionType = Type.GetType(EncDecFullClassName);
+
+                if (encryptionType == null)
+                {
+                    throw new ArgumentException(" Cannot determine type of encryption class");
+                }
+
+                encDec = Activator.CreateInstance(encryptionType) as IEncryptDecrypt;
+
+                if (encDec == null)
+                {
+                    throw new ArgumentException(" Cannot convert " + EncDecFullClassName + " to IEncryptDecrypt");
+                }
+            }
+
+            var args = HttpUtility.ParseQueryString(context.HttpContext.Request.QueryString.ToString());
             var parametersAction = context.ActionDescriptor.Parameters;
             for (var i = 0; i < args.Count; i++)
             {
@@ -31,11 +58,10 @@ namespace MVCCoreQueryEncrypt
                 var type = parametersAction.First(it => it.Name == name).ParameterType;
                 context.RouteData.Values[name ?? string.Empty] = ChangeType(encDec.DecryptString(value), type);
             }
+
             await next();
         }
-        /// <summary>
-        /// Assigns decrypted value to parameter
-        /// </summary>
+
         private static object ChangeType(object value, Type conversion)
         {
             var parType = conversion;

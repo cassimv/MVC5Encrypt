@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVCCoreQueryEncrypt;
 
-namespace Net5MVCEncryptDemo.Controllers
+namespace MVCCoreQueryEncryptDemo.Controllers
 {
     public class HomeController : Controller
     {
@@ -10,14 +10,24 @@ namespace Net5MVCEncryptDemo.Controllers
             return View();
         }
         [DecryptFilter]
-        public ActionResult EncryptedAction(int id, int val1, string val2)
+        public ActionResult EncryptedAction(int val0, int val1, string val2)
         {
             if (!ModelState.IsValid) return RedirectToAction("ModelInvalid");
 
-            ViewBag.id = id;
+            ViewBag.val0 = val0;
             ViewBag.val1 = val1;
             ViewBag.val2 = val2;
             return View();
+        }
+
+        public ActionResult UnEncryptedAction(int val0, int val1, string val2)
+        {
+            if (!ModelState.IsValid) return RedirectToAction("ModelInvalid");
+
+            ViewBag.val0 = val0;
+            ViewBag.val1 = val1;
+            ViewBag.val2 = val2;
+            return View("EncryptedAction");
         }
 
         public ActionResult About()

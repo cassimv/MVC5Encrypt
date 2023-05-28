@@ -10,13 +10,13 @@
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        internal string EncryptString(string value);
+        public string EncryptString(string value);
         /// <summary>
         /// decrypt string
         /// Please return the original value if the decryption does not work
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        internal string DecryptString(string value);
+        public string DecryptString(string value);
     }
 }

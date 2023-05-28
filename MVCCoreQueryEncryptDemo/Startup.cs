@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVCCoreQueryEncrypt.ServiceConfiguration;
 
-namespace Net5MVCEncryptDemo
+namespace MVCCoreQueryEncryptDemo
 {
     public class Startup
     {
